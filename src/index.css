@@ -1,0 +1,83 @@
+@import 'tailwindcss';
+
+/* ---------------------------------------------------------------
+   Cores. O acento é o mesmo bordô/rosa da primeira versão.
+   --------------------------------------------------------------- */
+:root {
+  --c-background: #f5f4f0;
+  --c-foreground: #1b1b19;
+  --c-muted-foreground: #6c6a61;
+  --c-border: #d9d6cc;
+  --c-secondary: #eae8e1;
+  --c-accent: #6b2737;
+  --c-accent-foreground: #f7f2f3;
+}
+
+:root:not([data-theme='light']) {
+  @media (prefers-color-scheme: dark) {
+    --c-background: #17171a;
+    --c-foreground: #ecebe5;
+    --c-muted-foreground: #a19e95;
+    --c-border: #34333a;
+    --c-secondary: #212024;
+    --c-accent: #d59aa6;
+    --c-accent-foreground: #17171a;
+  }
+}
+
+:root[data-theme='dark'] {
+  --c-background: #17171a;
+  --c-foreground: #ecebe5;
+  --c-muted-foreground: #a19e95;
+  --c-border: #34333a;
+  --c-secondary: #212024;
+  --c-accent: #d59aa6;
+  --c-accent-foreground: #17171a;
+}
+
+@theme {
+  --color-background: var(--c-background);
+  --color-foreground: var(--c-foreground);
+  --color-muted-foreground: var(--c-muted-foreground);
+  --color-border: var(--c-border);
+  --color-secondary: var(--c-secondary);
+  --color-accent: var(--c-accent);
+  --color-accent-foreground: var(--c-accent-foreground);
+
+  --font-sans: 'DM Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-mono: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--c-background);
+  color: var(--c-foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background-color: var(--c-accent);
+  color: var(--c-accent-foreground);
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
