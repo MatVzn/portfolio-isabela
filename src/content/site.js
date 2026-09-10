@@ -48,6 +48,7 @@ export const ui = {
     portraitAlt: 'Isabela Rodrigues Guimarães',
     portraitAltSecondary: 'Isabela Rodrigues Guimarães',
     footerTagline: 'Direito · Letras · Idiomas',
+    footerCredit: 'Feito por Matteo Vanzan',
   },
   en: {
     htmlTitle: 'Isabela Rodrigues Guimarães — Law',
@@ -70,6 +71,7 @@ export const ui = {
     portraitAlt: 'Isabela Rodrigues Guimarães',
     portraitAltSecondary: 'Isabela Rodrigues Guimarães',
     footerTagline: 'Law · Philology · Languages',
+    footerCredit: 'Made by Matteo Vanzan',
   },
   fr: {
     htmlTitle: 'Isabela Rodrigues Guimarães — Droit',
@@ -92,6 +94,7 @@ export const ui = {
     portraitAlt: 'Isabela Rodrigues Guimarães',
     portraitAltSecondary: 'Isabela Rodrigues Guimarães',
     footerTagline: 'Droit · Lettres · Langues',
+    footerCredit: 'Réalisé par Matteo Vanzan',
   },
 }
 

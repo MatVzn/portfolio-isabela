@@ -7,7 +7,21 @@ export default function Footer({ t }) {
         <span className="font-mono text-xs tracking-widest text-muted-foreground uppercase">
           {profile.fullName} · {new Date().getFullYear()}
         </span>
-        <span className="font-mono text-xs text-muted-foreground">{t.footerTagline}</span>
+
+        <div className="flex items-center gap-4 font-mono text-xs text-muted-foreground">
+          <span>{t.footerTagline}</span>
+
+          <span>·</span>
+
+          <a
+            href="https://matvzn.vercell.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent transition-colors hover:text-foreground"
+          >
+            {t.footerCredit}
+          </a>
+        </div>
       </div>
     </footer>
   )
