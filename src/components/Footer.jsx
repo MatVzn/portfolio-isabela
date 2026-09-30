@@ -14,7 +14,7 @@ export default function Footer({ t }) {
           <span>·</span>
 
           <a
-            href="https://matvzn.vercell.app"
+            href="https://matvzn.vercel.app"
             target="_blank"
             rel="noopener noreferrer"
             className="text-accent transition-colors hover:text-foreground"
