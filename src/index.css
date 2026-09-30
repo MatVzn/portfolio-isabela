@@ -1,9 +1,14 @@
 @import 'tailwindcss';
 
 /* ---------------------------------------------------------------
-   Cores. O acento é o mesmo bordô/rosa da primeira versão.
+   Temas. O atributo `data-theme` no <html> escolhe qual vale:
+   light | dark | pastel | auto (auto = segue o sistema).
+   O acento é o mesmo bordô/rosa da primeira versão.
    --------------------------------------------------------------- */
+
+/* Claro (também é o padrão caso o atributo ainda não exista). */
 :root {
+  color-scheme: light;
   --c-background: #f5f4f0;
   --c-foreground: #1b1b19;
   --c-muted-foreground: #6c6a61;
@@ -13,8 +18,12 @@
   --c-accent-foreground: #f7f2f3;
 }
 
-:root:not([data-theme='light']) {
-  @media (prefers-color-scheme: dark) {
+/* Automático: escuro quando o sistema estiver no modo escuro.
+   (Os valores do escuro aparecem duas vezes: aqui e logo abaixo.) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]),
+  :root[data-theme='auto'] {
+    color-scheme: dark;
     --c-background: #17171a;
     --c-foreground: #ecebe5;
     --c-muted-foreground: #a19e95;
@@ -25,7 +34,9 @@
   }
 }
 
+/* Escuro */
 :root[data-theme='dark'] {
+  color-scheme: dark;
   --c-background: #17171a;
   --c-foreground: #ecebe5;
   --c-muted-foreground: #a19e95;
@@ -33,6 +44,20 @@
   --c-secondary: #212024;
   --c-accent: #d59aa6;
   --c-accent-foreground: #17171a;
+}
+
+/* Pastel: fundo #f2e6b1 (creme) e texto #49243e (ameixa).
+   Os demais tons são variações dessas duas cores, com contraste mínimo
+   de 4.5:1 nos textos (WCAG AA). */
+:root[data-theme='pastel'] {
+  color-scheme: light;
+  --c-background: #f2e6b1;
+  --c-foreground: #49243e;
+  --c-muted-foreground: #6b4a62;
+  --c-border: #d9c982;
+  --c-secondary: #e8d99a;
+  --c-accent: #7d2b5c;
+  --c-accent-foreground: #f2e6b1;
 }
 
 @theme {

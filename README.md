@@ -30,7 +30,7 @@ npm run preview # testa a versão final localmente
 | E-mail, telefone, LinkedIn | `src/content/site.js` → `profile` |
 | Fotos | `src/assets/retrato.jpg` e `src/assets/retrato-2.jpg` |
 | Currículo em PDF | `src/assets/curriculo-isabela-guimaraes.pdf` |
-| Cores e fontes | `src/index.css` |
+| Cores e fontes (inclusive de cada tema) | `src/index.css` |
 | Estrutura e ordem das seções | `src/App.jsx` |
 | Cada seção, individualmente | `src/components/` |
 
@@ -84,6 +84,26 @@ sem servidor.
 
 ---
 
+## Temas (Claro · Escuro · Pastel · Automático)
+
+O ícone ao lado de `PT · EN · FR`, no topo da página, abre o menu de tema:
+
+| Opção | O que faz |
+| --- | --- |
+| **Claro** | Fundo off-white, texto escuro e acento bordô. |
+| **Escuro** | Fundo grafite, texto claro e acento rosado. |
+| **Pastel** | Fundo `#f2e6b1` (creme) e texto `#49243e` (ameixa). |
+| **Automático (sistema)** | Segue o sistema de quem visita: claro ou escuro, e muda sozinho se o sistema mudar. É o padrão. |
+
+A escolha fica salva no navegador. Para ajustar as cores de um tema, edite o
+bloco correspondente em `src/index.css` (`:root[data-theme='pastel']`, por
+exemplo). Para criar um tema novo: adicione um bloco de cores em
+`src/index.css`, o nome dele em `THEMES` (`src/lib/useTheme.js`), um ícone em
+`ICONS` (`src/components/ThemeSwitcher.jsx`) e o texto do menu em `ui.*.theme`
+(`src/content/site.js`), nos três idiomas.
+
+---
+
 ## Publicar
 
 O build gera **um único arquivo**, `dist/index.html`, com CSS, JavaScript,
@@ -110,7 +130,8 @@ inclusive aberto direto do computador com dois cliques.
 
 ## Acessibilidade e detalhes
 
-- Tema claro e escuro automáticos, conforme a preferência do sistema.
+- Quatro temas (claro, escuro, pastel e automático), com o tema aplicado antes
+  da página aparecer, sem piscar. O Pastel mantém contraste mínimo AA (4.5:1).
 - Navegação por teclado com foco visível e link "ir para o conteúdo".
 - Animações reduzidas quando o sistema pede (`prefers-reduced-motion`).
 - Título e descrição da página mudam junto com o idioma.

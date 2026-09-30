@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#f5f4f0" />
+    <script>
+      // Aplica o tema salvo antes da página aparecer, para não piscar.
+      // (A mesma chave é usada em src/lib/useTheme.js.)
+      try {
+        var t = localStorage.getItem('isabela-portfolio-theme');
+        if (['light', 'dark', 'pastel', 'auto'].indexOf(t) === -1) t = 'auto';
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    </script>
     <title>Isabela Rodrigues Guimarães</title>
     <meta
       name="description"

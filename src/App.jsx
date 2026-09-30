@@ -10,6 +10,7 @@ import Skills from './components/Skills.jsx'
 import Contact from './components/Contact.jsx'
 import Footer from './components/Footer.jsx'
 import { useLanguage } from './lib/useLanguage.js'
+import { useTheme } from './lib/useTheme.js'
 import { warmUpDownloads } from './lib/cv.js'
 import { sectionTitles, ui } from './content/site.js'
 
@@ -21,6 +22,7 @@ function Divider() {
 
 export default function App() {
   const [lang, setLang] = useLanguage()
+  const [theme, setTheme] = useTheme()
   const [active, setActive] = useState('')
   const t = ui[lang]
   const titles = sectionTitles[lang]
@@ -52,12 +54,12 @@ export default function App() {
     <div className="min-h-screen bg-background text-foreground">
       <a
         href="#about"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[60] focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:text-accent-foreground"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-60 focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:text-accent-foreground"
       >
         {t.skipToContent}
       </a>
 
-      <Header lang={lang} setLang={setLang} t={t} active={active} />
+      <Header lang={lang} setLang={setLang} theme={theme} setTheme={setTheme} t={t} active={active} />
 
       <main className="mx-auto max-w-6xl px-6">
         <Hero lang={lang} />

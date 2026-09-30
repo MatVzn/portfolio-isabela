@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import LanguageSwitcher from './LanguageSwitcher.jsx'
+import ThemeSwitcher from './ThemeSwitcher.jsx'
 import { profile } from '../content/site.js'
 
 const SECTIONS = ['about', 'experience', 'education', 'academic', 'skills', 'contact']
 
-export default function Header({ lang, setLang, t, active }) {
+export default function Header({ lang, setLang, theme, setTheme, t, active }) {
   const [open, setOpen] = useState(false)
 
   // Fecha o menu ao passar para a largura de desktop.
@@ -58,6 +59,8 @@ export default function Header({ lang, setLang, t, active }) {
             label={t.changeLanguage}
           />
 
+          <ThemeSwitcher theme={theme} onChange={setTheme} copy={t.theme} />
+            
           <button
             type="button"
             onClick={() => setOpen((value) => !value)}
@@ -69,13 +72,13 @@ export default function Header({ lang, setLang, t, active }) {
             <div className="flex w-5 flex-col gap-1.5">
               <span
                 className={
-                  'h-px bg-current transition-all ' + (open ? 'translate-y-[7px] rotate-45' : '')
+                  'h-px bg-current transition-all ' + (open ? 'translate-y-1.75 rotate-45' : '')
                 }
               />
               <span className={'h-px bg-current transition-all ' + (open ? 'opacity-0' : '')} />
               <span
                 className={
-                  'h-px bg-current transition-all ' + (open ? '-translate-y-[7px] -rotate-45' : '')
+                  'h-px bg-current transition-all ' + (open ? '-translate-y-1.75 -rotate-45' : '')
                 }
               />
             </div>
