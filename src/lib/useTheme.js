@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 
 export const THEMES = ['light', 'dark', 'pastel', 'auto']
-export const DEFAULT_THEME = 'light'
+export const DEFAULT_THEME = 'dark'
 
 // A mesma chave é lida pelo script do `index.html`, que aplica o tema antes
 // da página aparecer (evita o "piscar" de tema claro ao abrir em modo escuro).
